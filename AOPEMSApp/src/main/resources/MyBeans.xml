@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd"
+	 xmlns:p="http://www.w3.org/2001/XMLSchema/p"
+	 xmlns:c="http://www.w3.org/2001/XMLSchema/c">
+  <bean name="ds" class="com.springsource.org.apache.commons.dpcp.BasicDataSource"
+   p:driverClassName="oracle.jdbc.driver.OracleDriver"
+   p:url="jdbc:oracle:thin:@localhost:8080:XE"
+   p:username="system"
+   p:password="jpbehera"
+  />
+    
+  <bean name="empdao" class="com.aop.dao.EmployeeDAOImpl" c:_0-ref="ds"/>
+ <bean name="employeeServices" class="com.aop.service.EmployeeServiceImpl" p:employeeDAO-ref="empdao"/>
+  
+
+</beans>
